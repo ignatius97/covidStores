@@ -1,0 +1,354 @@
+/*----------Log in css page--------------*/
+.login-logo {
+    text-align: center;
+    margin-bottom: 15px; 
+  }
+  
+  .login-logo span {
+    color: #ffffff;
+    font-size: 24px; 
+  }
+  
+  .login-content {
+    max-width: 540px;
+    margin: 8vh auto; 
+  }
+  
+  .login-form {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px 30px 20px;
+    border-radius: 2px; 
+  }
+  
+  .login-form h4 {
+    text-align: center;
+    margin-bottom: 50px; 
+  }
+  
+  .login-form .btn {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 15px;
+    border: 0px; 
+  }
+    
+  
+  .login-logo-text{
+    display: inline-block;
+    vertical-align: middle;
+    color: #000;
+    font-weight: bold;
+  }
+
+
+/*--------------------shacking effect for the icons--------------*/
+@keyframes swing {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(10deg);
+    }
+    30% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    60% {
+      transform: rotate(5deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    80% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+
+  body {
+    font-size: 0.9rem;
+  }
+ 
+  
+  /*----------------page-wrapper----------------*/
+  
+  .page-wrapper {
+    height: 100vh;
+  }
+  
+  .page-wrapper .theme {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 2px;
+  }
+  
+  .page-wrapper .theme.chiller-theme {
+    background: #1e2229;
+  }
+  
+  /*----------------toggeled sidebar----------------*/
+  
+  .page-wrapper.toggled .sidebar-wrapper {
+    left: 0px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .page-wrapper.toggled .page-content {
+      padding-left: 300px;
+    }
+    .page-wrapper.toggled .navbar-content {
+        padding-left: 261px;
+      }
+  }
+  /*----------------show sidebar button----------------*/
+  #show-sidebar {
+    position: fixed;
+    left: 0;
+    top: 10px;
+    border-radius: 0 4px 4px 0px;
+    width: 35px;
+    transition-delay: 0.3s;
+    z-index: 999;
+  }
+  .page-wrapper.toggled #show-sidebar {
+    left: -40px;
+  }
+  /*----------------sidebar-wrapper----------------*/
+  
+  .sidebar-wrapper {
+    width: 260px;
+    height: 100%;
+    max-height: 100%;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    z-index: 999;
+  }
+  
+  .sidebar-wrapper ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-wrapper a {
+    text-decoration: none;
+  }
+  
+  /*----------------sidebar-content----------------*/
+  
+  .sidebar-content {
+    
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .sidebar-content.desktop {
+    overflow-y: hidden;
+  }
+  
+  /*--------------------sidebar-brand----------------------*/
+  
+  .sidebar-brand {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+   #close-sidebar {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /*-----------------------sidebar-search------------------------*/
+  
+  .sidebar-wrapper .sidebar-search > div {
+    padding: 10px 20px;
+  }
+  
+  /*----------------------sidebar-menu-------------------------*/
+  
+  .sidebar-wrapper .sidebar-menu {
+    padding-bottom: 10px;
+  }
+  
+ 
+  
+  .sidebar-wrapper .sidebar-menu ul li a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 30px 8px 20px;
+  }
+  
+  .sidebar-wrapper .sidebar-menu ul li a i {
+    margin-right: 10px;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .sidebar-wrapper .sidebar-menu ul li a:hover > i::before {
+    display: inline-block;
+    animation: swing ease-in-out 0.5s 1 alternate;
+  }
+  
+  .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f105";
+    font-style: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    background: 0 0;
+    position: absolute;
+    right: 15px;
+    top: 14px;
+  }
+  
+  .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
+    padding: 5px 0;
+  }
+  
+  .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
+    padding-left: 25px;
+    font-size: 13px;
+  }
+  
+  .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
+    content: "\f111";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 10px;
+    font-size: 8px;
+  }
+  
+
+
+  
+  .sidebar-wrapper .sidebar-menu .sidebar-submenu {
+    display: none;
+  }
+  
+ 
+  
+  /*--------------------------side-footer------------------------------*/
+  
+  .sidebar-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    background: #3a3f48;
+      box-shadow: 0px -1px 5px #282c33;
+      border-top: 1px solid #464a52;
+      padding: 0 55px;
+  }
+  
+  /*-----------------------navbar-content------------------------------*/
+  .navbar-content{
+      width: 100%;
+      position: fixed;
+      padding-top: 0px;
+      padding-left: 0px;
+  }
+
+  .navbar-brand{
+      padding-left: 40px;
+  }
+
+  /*--------------------------page-content-----------------------------*/
+  
+  .page-wrapper .page-content {
+    display: inline-block;
+    width: 100%;
+    padding-left: 0px;
+    padding-top: 20px;
+    margin-top: 60px;
+  }
+  
+  
+  .page-wrapper .page-content {
+    overflow-x: hidden;
+  }
+
+  
+  /*-----------------------------sidebar-wrapper-------------------------------------------------*/
+  
+  .sidebar-wrapper {
+    background: linear-gradient(-35deg, #ff00 0%,#002 100%)
+  }
+  
+  
+  .sidebar-search input.search-menu,
+  .sidebar-search .input-group-text {
+      border-color: transparent;
+      box-shadow: none;
+  }
+
+  .sidebar-search input.search-menu,
+  .sidebar-search .input-group-text,
+  .sidebar-menu ul li a,
+  .chiller-theme .sidebar-footer {
+      color: #818896;
+  }
+  
+  
+  
+  #close-sidebar {
+      color: #bdbdbd;
+  }
+  
+  #close-sidebar:hover {
+      color: #ffffff;
+  }
+  
+  .sidebar-wrapper ul li:hover a i,
+  .sidebar-dropdown .sidebar-submenu li a:hover:before,
+  .sidebar-menu .sidebar-dropdown.active a i {
+      color: #16c7ff;
+      text-shadow:0px 0px 10px rgba(22, 199, 255, 0.5);
+  }
+  
+  .sidebar-menu ul li a i,
+  .sidebar-menu .sidebar-dropdown div,
+  .sidebar-search input.search-menu,
+  .sidebar-search .input-group-text {
+      background: #3a3f48;
+  }
+  
+  .label{
+    font-weight: bold;
+  }
+ 
+  
+  
+  
+
+  

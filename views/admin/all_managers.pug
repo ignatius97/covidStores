@@ -1,0 +1,43 @@
+extends manager_layout
+block content
+    style.
+        .container-fluid{
+            overflow:auto;
+        }
+    h2 All Managers&nbsp&nbsp
+        form(action='/admin/all_managers' method='GET')
+            div.sidebar-search(style="display:inline-block;")
+                            div.input-group
+                                input(type="text" name="firstname" placeholder="Search...").form-control.search-menu
+                                div.input-group-append
+                                    button.input-group-text
+                                        i(aria-hidden="true").fa.fa-search
+    hr
+    table.table
+        thead.thead-dark
+            tr
+                th Firstname
+                th Lastname
+                th Phonenumber
+                th Email
+                th Address
+                th National Id_No
+                th Manager Id_No
+                th Username
+                th Delete
+        tbody(style="background-color: rgba(255,255,255,0.5);") 
+            each manager in managers
+                tr
+                    td #{manager.firstname}
+                    td #{manager.lastname}
+                    td #{manager.phone_number}
+                    td #{manager.email}
+                    td #{manager.address}
+                    td #{manager.national_id_no}
+                    td #{manager.manager_id_no}
+                    td #{manager.username}
+                    
+                    td
+                        form(method="post" action='/admin/delete')
+                            input(type="hidden", placeholder="", name="id", value=manager._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete

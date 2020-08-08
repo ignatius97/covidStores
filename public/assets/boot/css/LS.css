@@ -1,0 +1,518 @@
+	@media only screen and (min-width:950px){
+
+		body{
+			padding:0;
+			margin:0;
+			background-image: url('../images/wall.jpeg');
+			background-size: cover;
+
+			
+
+		}
+		.container{
+			
+			
+			background-color:white;
+			
+			margin-top: 2%;
+			border: 2px  solid white;
+			box-shadow: 0 15px 40px rgba(0,0,0,.5);
+			
+		}
+		#cont1{
+            width: 30%;
+            height:300px;
+			float:left;
+			/*background-image: url(../images/logo.jpg);*/
+			
+			
+			
+		}
+		#cont2{
+			float:right;
+			width:40%;
+			height:650px;
+
+			
+		}
+		#cont3{
+			float:left;
+			width:20%;
+			height:200px;
+			background-color: white;
+			margin-left:5%;
+
+			
+		}
+		
+		.container .left{
+			width:50%;
+			height:100%;
+			float:left;
+			background-image: url(../images/t.jpg);
+			background-size: cover;
+			
+		}
+		.container .right{
+			width:49%;
+			height:100%;
+			float:right;
+			margin-left:1%;
+			
+		}
+	    .formBox{
+	    	box-sizing: border-box;
+	    	margin-top:15%;
+	    	height:400px;
+	    }
+	    .formBox p{
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	margin-bottom: 2px;
+	    	padding: 0;
+	    	font-size: 100%;
+
+	    }
+	    .fontBpx input{
+	    	
+    	border:none;
+
+	    }
+	    .formBox input[type="text"],
+	    .formBox input[type="password"]{
+	    	border:none;
+	    	border-bottom:2px solid black;
+	    	outline:none;
+	    }
+	    .formBox input[type="text"]:focus,
+	    .formBox input[type="password"]:focus{
+	    	
+	    	border-bottom:2px solid grey;
+	    	
+	    }
+	    .formBox input[type="submit"]
+	   {
+	    	background-color:black;
+	    	color:white;
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	width:80%;
+	    	font-size:20px;
+	    	margin-top:5px;
+	    	border-radius: 50px;
+
+	    }
+	    .formBox input[type="submit"]:focus{
+	    	outline:none;
+	    	border-color:white;
+	    }
+
+	    #cont3 button{
+	    	width:100%;
+	    	height:100%;
+	    	font-size: 220%;
+	    	background-color:black;
+	    	color:white;
+	    }
+	    #Logo1{
+	    	display: none;
+	    }
+	    #fn2{
+	    	display: none;
+	    }
+	    }
+
+	    @media only screen and (max-width:950px) and (min-width: 665px){
+body{
+			padding:0;
+			margin:0;
+			background-image: url('../images/wall.jpeg');
+			background-size: cover;
+			
+
+		}
+		.container{
+			
+			
+			background-color:white;
+			
+			margin-top: 2%;
+			border: 2px  solid white;
+			box-shadow: 0 15px 40px rgba(0,0,0,.5);
+			
+		}
+		#cont1{
+            width: 25%;
+            height:150px;
+			float:left;
+			/*background-image: url(../images/logo.jpg);*/
+			display: none;
+			
+			
+			
+		}
+
+		#cont2{
+			
+			width:65%;
+			height:650px;
+			position: fixed;			
+
+			
+		}
+		#cont3{
+			float:right;
+			width:20%;
+			height:200px;
+			background-color: white;
+			margin-left:5%;
+
+			
+		}
+		
+		.container .left{
+			width:50%;
+			height:100%;
+			float:left;
+			background-image: url(../images/t.jpg);
+			background-size: cover;
+			
+		}
+		.container .right{
+			width:49%;
+			height:100%;
+			float:right;
+			margin-left:1%;
+			
+		}
+	    .formBox{
+	    	box-sizing: border-box;
+	    	margin-top:15%;
+	    	height:400px;
+	    }
+	    .formBox p{
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	margin-bottom: 2px;
+	    	padding: 0;
+	    	font-size: 100%;
+
+	    }
+	    .fontBpx input{
+	    	
+    	border:none;
+
+	    }
+	    .formBox input[type="text"],
+	    .formBox input[type="password"]{
+	    	border:none;
+	    	border-bottom:2px solid black;
+	    	outline:none;
+	    }
+	    .formBox input[type="text"]:focus,
+	    .formBox input[type="password"]:focus{
+	    	
+	    	border-bottom:2px solid grey;
+	    	
+	    }
+	    .formBox input[type="submit"]
+	   {
+	    	background-color:black;
+	    	color:white;
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	width:80%;
+	    	font-size:20px;
+	    	margin-top:5px;
+	    	border-radius: 50px;
+
+	    }
+	    .formBox input[type="submit"]:focus{
+	    	outline:none;
+	    	border-color:white;
+	    }
+
+	    #cont3 button{
+	    	width:100%;
+	    	height:100%;
+	    	font-size: 150%;
+	    	background-color:black;
+	    	color:white;
+	    }
+	    #Logo1{
+	    	width:100%;
+	    	height:50%;
+
+	    }
+	    #fn2{
+	    	display: none;
+	    }
+}
+@media only screen and (max-width:664px) and (min-width:400px ){
+	body{
+			padding:0;
+			margin:0;
+			background-image: url('../images/wall.jpeg');
+			background-size: cover;
+			
+
+		}
+		.container{
+			
+			
+			background-color:white;
+			
+			margin-top: 2%;
+			border: 2px  solid white;
+			box-shadow: 0 15px 40px rgba(0,0,0,.5);
+			
+		}
+		#cont1{
+            width: 25%;
+            height:150px;
+			float:left;
+			/*background-image: url(../images/logo.jpg);*/
+			display: none;
+			
+			
+			
+		}
+
+		#cont2{
+			
+			width:100%;
+			height:650px;
+			position: fixed;			
+
+			
+		}
+		#cont3{
+			float:right;
+			width:20%;
+			height:200px;
+			background-color: white;
+			margin-left:5%;
+			display: none;
+
+			
+		}
+		
+		.container .left{
+			width:39%;
+			height:100%;
+			float:left;
+			background-image: url(../images/t.jpg);
+			background-size: cover;
+			
+		}
+		.container .right{
+			width:60%;
+			height:100%;
+			float:right;
+			margin-left:1%;
+			
+		}
+	    .formBox{
+	    	box-sizing: border-box;
+	    	margin-top:15%;
+	    	height:400px;
+	    }
+	    .formBox p{
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	margin-bottom: 2px;
+	    	padding: 0;
+	    	font-size: 100%;
+
+	    }
+	    .fontBpx input{
+	    	
+    	border:none;
+
+	    }
+	    .formBox input[type="text"],
+	    .formBox input[type="password"]{
+	    	border:none;
+	    	border-bottom:2px solid black;
+	    	outline:none;
+	    }
+	    .formBox input[type="text"]:focus,
+	    .formBox input[type="password"]:focus{
+	    	
+	    	border-bottom:2px solid grey;
+	    	
+	    }
+	    .formBox input[type="submit"]
+	   {
+	    	background-color:black;
+	    	color:white;
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	width:80%;
+	    	font-size:20px;
+	    	margin-top:5px;
+	    	border-radius: 50px;
+
+	    }
+	    .formBox input[type="submit"]:focus{
+	    	outline:none;
+	    	border-color:white;
+	    }
+
+	    #cont3 button{
+	    	width:100%;
+	    	height:100%;
+	    	font-size: 150%;
+	    	background-color:black;
+	    	color:white;
+	    }
+	    #Logo1{
+	    	width:100%;
+	    	height:30%;
+	    }
+	    #fn2{
+	    	
+	   		border-color:white; 	
+	   		background-color: black;
+	    	color:white;
+	    	height:20px;
+	    	border-radius: 50px;
+
+	    }
+}
+
+@media only screen and (max-width: 400px){
+	body{
+			padding:0;
+			margin:0;
+			background-image: url('../images/wall.jpeg');
+			background-size: cover;
+			
+			
+
+		}
+		.container{
+			
+			
+			background-color:white;
+			
+			margin-top: 2%;
+			border: 2px  solid white;
+			box-shadow: 0 15px 40px rgba(0,0,0,.5);
+			
+		}
+		#cont1{
+            width: 25%;
+            height:150px;
+			float:left;
+			/*background-image: url(../images/logo.jpg);*/
+			display: none;
+			
+			
+			
+		}
+
+		#cont2{
+			
+			width:100%;
+			height:650px;
+			position: fixed;			
+
+			
+		}
+		#cont3{
+			float:right;
+			width:20%;
+			height:200px;
+			background-color: white;
+			margin-left:5%;
+			display: none;
+
+			
+		}
+		
+		.container .left{
+			width:39%;
+			height:100%;
+			float:left;
+			background-image: url(../images/t.jpg);
+			background-size: cover;
+			
+		}
+		.container .right{
+			width:60%;
+			height:100%;
+			float:right;
+			margin-left:1%;
+			
+		}
+	    .formBox{
+	    	box-sizing: border-box;
+	    	margin-top:15%;
+	    	height:400px;
+	    }
+	    .formBox p{
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	margin-bottom: 2px;
+	    	padding: 0;
+	    	font-size: 100%;
+
+	    }
+	    .fontBpx input{
+	    	
+    	border:none;
+
+	    }
+	    .formBox input[type="text"],
+	    .formBox input[type="password"]{
+	    	border:none;
+	    	border-bottom:2px solid black;
+	    	outline:none;
+	    }
+	    .formBox input[type="text"]:focus,
+	    .formBox input[type="password"]:focus{
+	    	
+	    	border-bottom:2px solid grey;
+	    	
+	    }
+	    .formBox input[type="submit"]
+	   {
+	    	background-color:black;
+	    	color:white;
+	    	font-weight: bold;
+	    	font-family: 'Gaegu', cursive;
+	    	width:80%;
+	    	font-size:20px;
+	    	margin-top:5px;
+	    	border-radius: 50px;
+
+	    }
+	    .formBox input[type="submit"]:focus{
+	    	outline:none;
+	    	border-color:white;
+	    }
+
+	    #cont3 button{
+	    	width:100%;
+	    	height:100%;
+	    	font-size: 150%;
+	    	background-color:black;
+	    	color:white;
+	    }
+	    #Logo1{
+	    	width:100%;
+	    	height:20%;
+	    }
+	    #fn2{
+	    	
+	   		border-color:white; 	
+	   		background-color: black;
+	    	color:white;
+	    	height:20px;
+	    	border-radius: 50px;
+	    	text-decoration: none;
+
+	    }
+
+}

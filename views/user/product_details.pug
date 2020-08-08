@@ -1,0 +1,33 @@
+extends user_layout
+block content
+    style.
+        .container{
+                background:white; 
+                margin-top: 35px;
+                text-align:center;
+            }
+        img{
+                margin-left: auto;
+                margin-right: auto;
+                height: 45%;
+                 
+                display: block;
+        }
+        @media(max-width: 920px){
+            .container{ 
+                width:85%; 
+                height:85%;
+            }
+        }
+        @media(min-width: 920px){
+            .container{ 
+                width:35%; 
+                height:85%;
+            }
+        }
+    div.container
+        each new_product in new_products
+            h1 #{new_product.product_name}
+            img(src=new_product.product_image, alt="")
+            p #{new_product.price}
+            p #{new_product.description}

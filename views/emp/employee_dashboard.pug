@@ -1,0 +1,158 @@
+extends employee_layout
+block content
+    style.
+  
+            .description{
+                display: grid;
+                    position: relative;
+                    margin-top:-75px;
+                    bottom: 0;
+                    left: 0;
+                    color: #fff;
+                    padding: 10px;
+                    font-size: 17px;
+                    line-height: 18px;
+                    width: 100%;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    opacity: 1;
+                    color: #fff;
+                    transition: 0.8s ease;
+                    text-align: center;
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+                    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+                }
+
+                .description .description-heading{
+                font-size: 1em;
+                font-weight: bold;
+                }
+
+                .description .description-body{
+                font-size: 0.8em;
+                margin-top: 10px;
+                font-weight: 300;
+                }
+                @media only screen and (max-width: 780px){
+                .col-sm-6{
+                    width:50%;
+                    float:left;
+                }
+                .card.video-card{
+                    height:22vh;
+                    margin-bottom:20px;
+                }
+                .lowerbody{
+                    margin-top: -65px;
+                }
+                
+                }
+                @media only screen and (min-width: 780px){
+                
+                .card.video-card{
+                    height:33vh;
+                    margin-bottom:20px;
+                }
+                
+                
+                }
+
+
+                
+                    
+               
+    h2 Welcome&nbsp&nbsp #{currentUser.username} &nbsp&nbsp
+       
+        br                            
+    hr
+    div          
+        h1(style="background-color: rgba(0,0,0,0.2)") Fushion
+            div(style="display:inline-block; float:right; font-size:15px; position:relative; z-index: 9999;")
+                form(action="category", method="get")
+                    input(type="hidden", placeholder="", name="category", value="clothes")
+                    button(type="submit" ) More
+        div.row
+            - var count = 0
+            each new_product in new_products
+                if new_product.category == "clothes"
+                    if count < 4
+                        div.col-sm-6.col-md-3
+                            form(method="GET" action='/emp/add_new_payment')
+                                input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                button.btn.btn-dark.btn-block(type="submit" )
+                                    div.card-deck(style="background-color:white;")
+                                        div.card.video-card
+                                            img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                            div.description
+                                                span.description-heading #{new_product.price}
+                                                span.description-body #{new_product.product_name}
+                        - count++;                    
+
+                                
+
+                                        
+        h1(style="background-color: rgba(0,0,0,0.2)") Bags
+            div(style="display:inline-block; float:right;font-size:15px; ")
+                form(action="category", method="get")
+                    input(type="hidden", placeholder="", name="category", value="Bag")
+                    button(type="submit" ) More
+        div.row
+            - var count = 0
+            each new_product in new_products
+                if new_product.category == "Bag"
+                    if count < 4
+                        div.col-sm-6.col-md-3
+                            form(method="GET" action='/emp/add_new_payment')
+                                input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                button.btn.btn-dark.btn-block(type="submit" )
+                                    div.card-deck(style="background-color:white;")
+                                        div.card.video-card
+                                            img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                            div.description
+                                                span.description-heading #{new_product.price}
+                                                span.description-body #{new_product.product_name}
+                        - count++; 
+
+        h1(style="background-color: rgba(0,0,0,0.2)") Shoes
+            div(style="display:inline-block; float:right; font-size:15px;")
+                form(action="category", method="get")
+                    input(type="hidden", placeholder="", name="category", value="shoes")
+                    button(type="submit" ) More
+        div.row
+            - var count = 0
+            each new_product in new_products
+                if new_product.category == "shoes"
+                    if count < 4
+                        div.col-sm-6.col-md-3
+                            form(method="GET" action='/emp/add_new_payment')
+                                input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                button.btn.btn-dark.btn-block(type="submit" )
+                                    div.card-deck(style="background-color:white;")
+                                        div.card.video-card
+                                            img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                            div.description
+                                                span.description-heading #{new_product.price}
+                                                span.description-body #{new_product.product_name}
+                        - count++;  
+
+        h1(style="background-color: rgba(0,0,0,0.2)") TV
+            div(style="display:inline-block; float:right; font-size:15px;")
+                form(action="category", method="get")
+                    input(type="hidden", placeholder="", name="category", value="TV")
+                    button(type="submit" ) More
+        div.row
+            - var count = 0
+            each new_product in new_products
+                if new_product.category == "TV"
+                    if count < 4
+                        div.col-sm-6.col-md-3
+                            form(method="GET" action='/emp/add_new_payment')
+                                input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                button.btn.btn-dark.btn-block(type="submit" )
+                                    div.card-deck(style="background-color:white;")
+                                        div.card.video-card
+                                            img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                            div.description
+                                                span.description-heading #{new_product.price}
+                                                span.description-body #{new_product.product_name}
+                        - count++;

@@ -1,0 +1,138 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css")
+        link(rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/assets/css/style.css")
+        script(src="/assets/bootstrap/js/bootstrap.min.js")
+        script(src="/assets/bootstrap/js/jquery-3.5.1.js")
+        script(src="/assets/js/myjs.js")
+        title Covid Stores 
+        style.
+            .navbar-expand-lg {
+                justify-content: space-between;
+            }
+            .log_out_btn{
+                color:black;
+            }
+            .menu{
+                text-align:center;
+                color:White;
+                font-size:20px;
+                font-weight: 700;
+            }
+            .sidebar-wrapper .sidebar-menu ul li a:hover{
+                color:#16c7ff;
+            }
+            .navbar-content{
+                z-index:9;
+            }
+            body {
+            background:url("/images/bg41.jpg") fixed;
+            overflow:scroll;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            }
+
+
+
+    body
+        div.page-wrapper.chiller-theme.toggled
+            //- The button to show sidebar
+            a(href="#").btn.btn-sm.btn-dark#show-sidebar
+                i.fas.fa-bars
+            //- sidebar-content   
+            nav.sidebar-wrapper#sidebar
+                div.sidebar-content
+                    //- The area for the close sidebar button
+                    div.sidebar-brand
+                        div#close-sidebar
+                            i.fas.fa-times 
+                    //- sidebar-title
+                    div.menu
+                        label(for="") Menu
+                    //- sidebar-menu
+                    div.sidebar-menu
+                        ul
+                            li
+                                a(href="buyers")
+                                    i.fa.fa-chart-area
+                                    span Sales
+                                li.sidebar-dropdown
+                                    a(href="#")
+                                        i.fa.fa-shopping-cart
+                                        span Products
+                                    div.sidebar-submenu
+                                        ul
+                                            li
+                                                a(href="add_product") Add Product
+                                            li
+                                                a(href="all_products") All Product 
+                                            
+                                            
+                                li.sidebar-dropdown
+                                    a(href="#")
+                                        i.fas.fa-user
+                                        span Staff Memebers
+                                    div.sidebar-submenu
+                                        ul
+                                            li
+                                                a(href="add_manager") Add Manager
+                                            li
+                                                a(href="add_employee") Add Employees 
+                                            li
+                                                a(href="all_managers") All Managers    
+                                            li
+                                                a(href="all_employees") All Employees 
+                div.sidebar-footer
+                    span &copy Ignatius
+                    
+            div.navbar-content
+                nav.navbar.navbar-expand-lg.navbar-light.bg-light
+                    a(href="#").navbar-brand
+                        img(src="/images/logo.png" alt="Covid Stores")
+                        h2.login-logo-text Covid Stores
+                    div
+                        a(href="#").log_out_btn 
+                            i.fa.fa-power-off(style="font-size: large;" onclick="logout()")      
+            main.page-content
+                div.container-fluid
+                    block content
+                    
+
+        script(src="/assets/bootstrap/js/jquery-3.5.1.js")
+        script(src="/assets/bootstrap/js/popper.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous")
+        script(src="/assets/bootstrap/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous")
+
+        //- The code that runs after clicking the logout button
+        script.
+            var logout = () =>{
+                if(confirm("Are you sure you want to log out")){
+                    alert('you have logged out');
+                    window.location.href = "log_out";  
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

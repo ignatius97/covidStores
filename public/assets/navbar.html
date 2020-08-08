@@ -1,0 +1,136 @@
+
+
+ <script >
+   // drowers
+jQuery(function ($) {
+
+$(".sidebar-dropdown > a").click(function() {
+$(".sidebar-submenu").slideUp(200);
+if (
+$(this)
+  .parent()
+  .hasClass("active")
+) {
+$(".sidebar-dropdown").removeClass("active");
+$(this)
+  .parent()
+  .removeClass("active");
+} else {
+$(".sidebar-dropdown").removeClass("active");
+$(this)
+  .next(".sidebar-submenu")
+  .slideDown(200);
+$(this)
+  .parent()
+  .addClass("active");
+}
+});
+
+$("#close-sidebar").click(function() {
+$(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function() {
+$(".page-wrapper").addClass("toggled");
+});
+
+
+
+
+});
+
+
+ </script>
+ <!-- The button to show sidebar -->
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+      <!-- sidebar-content  -->
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+        <!-- The area for the close sidebar button -->
+       <div class="sidebar-brand">
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+ 
+      <!-- sidebar-search  -->
+      <div class="sidebar-search">
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+      </div>
+      <!-- sidebar-search  -->
+      <!-- sidebar-menu  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li >
+            <a href="#">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-shopping-cart"></i>
+              <span>Products</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="Add_product">Add Product</a>
+                </li>  
+                <li>
+                  <a href="#">Sales</a>
+                </li>
+                <li>
+                  <a href="#">Orders</a>
+                </li>
+                <li>
+                  <a href="#">Credit cart</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fas fa-user"></i>
+              <span>Staff Memebers</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Employees</a>
+                </li>
+                <li>
+                  <a href="#">Add Employee</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <!-- sidebar-footer  -->
+    <div class="sidebar-footer">
+      <span>&copy Ignatius</span>
+    </div>
+  </nav>
+  <!-- sidebar-footer  -->
+  <!-- The navbar -->
+  <div class="navbar-content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo.png" alt="Covid Stores"><h2 class="login-logo-text">Covid Stores</h2>
+        </a>
+    </nav>
+  </div>
+  <!-- The navbar -->
+  

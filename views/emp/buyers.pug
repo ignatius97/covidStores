@@ -1,0 +1,47 @@
+extends employee_layout
+block content
+    h2 Sales
+    hr
+    style.
+       
+        
+        .container-fluid{
+            overflow:auto;
+        }
+
+
+
+        
+    h2 Customers&nbsp&nbsp
+        //- the search form for products
+        
+        div.sidebar-search(style="display:inline-block;")
+            form(action='/emp/buyers' method='GET')
+                div.input-group
+                    input(type="text" name="customer_ref_no" placeholder="Search...").form-control.search-menu
+                    div.input-group-append
+                        button.input-group-text
+                            i(aria-hidden="true").fa.fa-search
+    
+    hr
+    table.table
+        thead.thead-dark
+            tr
+                
+                th customer_name
+                th customer_ref_no
+                th Details
+                
+                
+        tbody(style="background-color: rgba(255,255,255,0.5);") 
+            each new_sale in new_sales  
+                tr
+                    form(method="get" action='/emp/buyers_products' )
+                        td #{new_sale._id.customer_name}   
+                        td #{new_sale._id.customer_ref_no}
+                        td 
+                            input(type="hidden", placeholder="", name="customer_ref_no", value=new_sale._id.customer_ref_no)
+                            button.btn.btn-dark.btn-block(type="submit" ) Details
+                    
+                        
+                    

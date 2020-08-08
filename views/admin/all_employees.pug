@@ -1,0 +1,49 @@
+extends manager_layout
+block content
+    style.
+        .container-fluid{
+            overflow:auto;
+        }
+    h2 All Employees&nbsp&nbsp
+        div.sidebar-search(style="display:inline-block;")
+                        div.input-group
+                            input(type="text" placeholder="Search...").form-control.search-menu
+                            div.input-group-append
+                                button.input-group-text
+                                    i(aria-hidden="true").fa.fa-search
+    hr
+    table.table
+        thead.thead-dark
+            tr
+                th Firstname
+                th Lastname
+                th Phonenumber
+                th Email
+                th Address
+                th National Id_No
+                th Employee Id_No
+                th Username
+                th Delete
+        tbody(style="background-color: rgba(255,255,255,0.5);") 
+            each new_employee in new_employees
+                tr
+                    td #{new_employee.firstname}
+                    td #{new_employee.lastname}
+                    td #{new_employee.phone_number}
+                    td #{new_employee.email}
+                    td #{new_employee.address}
+                    td #{new_employee.national_id_no}
+                    td #{new_employee.employee_id_no}
+                    td #{new_employee.username}
+                    
+                    td
+                        form(method="post" action='/admin/delete_emp')
+                            input(type="hidden", placeholder="", name="id", value=new_employee._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+extends manager_layout
+block content
+    style.
+        .zoom {
+        padding: 0px;
+        transition: transform .2s;
+        }
+
+        .zoom:hover {
+        -ms-transform: scale(2); /* IE 9 */
+        -webkit-transform: scale(2); /* Safari 3-8 */
+        transform: scale(2); 
+        }
+        
+        label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        position: revert;
+        z-index: 9;
+        margin-left:-15px;
+        }
+        input{
+            border:none;
+        }
+        .container-fluid{
+            overflow:auto;
+        }
+
+
+
+        .hide {
+        display: none;
+        }
+    h2 All Product&nbsp&nbsp
+        //- the search form for products
+        form(action='/admin/all_products' method='GET')
+            div.sidebar-search(style="display:inline-block;")
+                div.input-group
+                    input(type="text" name="product_name" placeholder="Search...").form-control.search-menu
+                    div.input-group-append
+                        button.input-group-text
+                            i(aria-hidden="true").fa.fa-search
+    
+    hr
+    table.table
+        thead.thead-dark
+            tr
+                th Product name
+                th Price
+                th Category
+                th Image
+                th 
+                    span(style="color:black") .............
+                    span Description
+                    span(style="color:black") .............
+                th Make
+                th Date
+                th Serial Numbe
+                th color
+                th Number In Stock
+                th Pay interal
+                th Edit
+
+
+                th Delete
+        tbody(style="background-color: rgba(255,255,255,0.5);") 
+            each new_product in new_products
+                
+                    tr
+                        form(method="post" action='/admin/edit_product' enctype="multipart/form-data")
+                            td 
+                                input(type="text" name="product_name" value=new_product.product_name)
+                            td
+                                input(type="text" name="price" value=new_product.price)
+                            td
+                                input(type="text" name="category" value=new_product.category)
+                            td 
+                                label()
+                                    i.fa.fa-paperclip.fa-lg(aria-hidden="true")
+                                    input#file-input.file-input.hide(type="file" name="product_image" )
+                                img(src=new_product.product_image, alt="no image" style="width:100px; height:100px;").zoom
+                            td
+                                textarea.form-control(name="description", rows="4%" ) #{new_product.description}
+                            td
+                                input(type="text" name="make" value=new_product.make)
+                            td #{new_product.date_of_entry}
+                            td
+                                input(type="text" name="serial_number" value=new_product.serial_number)
+                            td
+                                input(type="text" name="color" value=new_product.color)
+                            td
+                                input(type="text" name="number_in_stock" value=new_product.number_in_stock)
+                            td
+                                input(type="text" name="pay_interval" value=new_product.pay_interval)
+                            td
+                                input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                button.btn.btn-dark.btn-block(type="submit" ) Edit
+                        td
+                            form(method="post" action='/admin/delete_product')
+                                input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                button.btn.btn-dark.btn-block(type="submit") Delete

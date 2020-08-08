@@ -1,0 +1,234 @@
+extends user_layout
+block content
+    div
+        style.
+            @media(min-width: 780px){
+            .carousel-inner{
+                height:500%;
+            }
+            .carousel-inner > .item > a > img, .carousel-inner > .item > img{
+                height:500px;
+                width:50%;
+            }
+            }
+            @media(max-width: 780px){
+            .carousel-inner{
+                height:300%;
+            }
+            .carousel-inner > .item > a > img, .carousel-inner > .item > img{
+                height:300px;
+                width:80%;
+            }
+            }
+            .description{
+                display: grid;
+                    position: relative;
+                    margin-top:-75px;
+                    bottom: 0;
+                    left: 0;
+                    color: #fff;
+                    padding: 10px;
+                    font-size: 17px;
+                    line-height: 18px;
+                    width: 100%;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    opacity: 1;
+                    color: #fff;
+                    transition: 0.8s ease;
+                    text-align: center;
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+                    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+                }
+
+                .description .description-heading{
+                font-size: 1em;
+                font-weight: bold;
+                }
+
+                .description .description-body{
+                font-size: 0.8em;
+                margin-top: 10px;
+                font-weight: 300;
+                }
+                @media only screen and (max-width: 780px){
+                .col-sm-6{
+                    width:50%;
+                    float:left;
+                }
+                .card.video-card{
+                    height:22vh;
+                    margin-bottom:20px;
+                }
+                .lowerbody{
+                    margin-top: -65px;
+                }
+                .carousel-control.right{
+                    height:245px;
+                }
+                .carousel-control.left{
+                    height:245px;
+                }
+                .modal-content{
+                    width: 90%;
+                    height: 55vh;
+                    background-color: white ;
+                    border-radius: 5px;
+                    display: none;
+                    padding: 20px;
+                    margin: 145px auto;
+                    position: absolute;
+                    z-index: 99999;
+                    left:5%
+                    }
+                }
+                @media only screen and (min-width: 780px){
+                
+                .card.video-card{
+                    height:33vh;
+                    margin-bottom:20px;
+                }
+                .lowerbody{
+                    margin-top: -100px;
+                }
+                .carousel-control.right{
+                    height:400px;
+                }
+                .carousel-control.left{
+                    height:400px;
+                }
+                .modal-content{
+                    width: 35%;
+                    height: 55vh;
+                    background-color: white ;
+                    border-radius: 5px;
+                    display: none;
+                    padding: 20px;
+                    margin: 145px auto;
+                    position: absolute;
+                    z-index: 99999;
+                    left:35%
+                    }
+                }
+
+
+                
+                    
+                .close{
+                    background-color: rgba(9,9,9,0.4);
+                    position: absolute;
+                    top: 0;
+                    right: 14px;
+                    font-size: 30px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    padding: 0px 10px;
+                    border-radius: 20px;
+                    color: #fff;
+                    }
+        
+                   
+
+        div(style="text-align:right; position:absolute; width:90%; z-index:999;")
+            img(src="/images/logo.png" alt="Covid Stores" style="height:10vmax;")   
+            div(style="font-size: 10vmin; font-weight: bold;color:azure ;font-family: ink free; ") Covid Stores
+                div.slogan WE HAVE  YOUR BACK
+
+
+        div#myCarousel.carousel.slide(data-ride="carousel")
+            // Wrapper for slides
+            div.carousel-inner
+                div.item.active
+                    img(src="/images/bg14.png" alt="Los Angeles" )
+                div.item
+                    img(src="/images/bg1.png" alt="Chicago" )
+                div.item
+                    img(src="/images/bg9.png" alt="New york" )
+            // Left and right controls
+            a.left.carousel-control(href="#myCarousel" data-slide="prev" )
+
+            a.right.carousel-control(href="#myCarousel" data-slide="next" )
+
+        div.container.lowerbody            
+            h1(style="background-color: rgba(255,255,255,0.6)") Fushion
+                div(style="display:inline-block; float:right; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="clothes")
+                        button(type="submit" ) More
+            div.row
+                - var count = 0
+                each new_product in new_products
+                    if new_product.category == "clothes"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck(style="background-color:white;")
+                                            div.card.video-card
+                                                img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                div.description
+                                                    span.description-heading #{new_product.price}
+                                                    span.description-body #{new_product.product_name}
+                            - count++;                    
+
+                                    
+
+                                            
+            h1(style="background-color: rgba(255,255,255,0.6)") Bags
+                div(style="display:inline-block; float:right;font-size:15px; ")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="Bag")
+                        button(type="submit" ) More
+            div.row
+                - var count = 0
+                each new_product, i in new_products
+                    if new_product.category == "Bag"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck(style="background-color:white;")
+                                            div.card.video-card
+                                                a(href="#")
+                                                    img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                    div.description
+                                                        span.description-heading #{new_product.price}
+                                                        span.description-body #{new_product.product_name}
+                            - count++; 
+
+            h1(style="background-color: rgba(255,255,255,0.6)") Shoes
+                div(style="display:inline-block; float:right; font-size:15px;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="shoes")
+                        button(type="submit" ) More
+            div.row
+                - var count = 0
+                each new_product, i in new_products
+                    if new_product.category == "shoes"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck(style="background-color:white;")
+                                            div.card.video-card
+                                                a(href="#" )
+                                                    img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                    div.description
+                                                        span.description-heading #{new_product.price}
+                                                        span.description-body #{new_product.product_name}
+                            - count++;                             
+
+           
+    
+    
+
+        script.
+            function log() {
+                document.getElementById('modal-content').style.display ="inline-block";
+            }
+            function cls() {
+                document.getElementById('modal-content').style.display ="none";
+            }

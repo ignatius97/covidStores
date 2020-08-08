@@ -1,0 +1,101 @@
+extends manager_layout
+block content
+    style.
+        .submit_buttom {
+            text-align:right;
+        }
+        .error{
+            color:red;
+        }
+        
+    fieldset.form-group.border.p-3(style="background-color: rgba(255,255,255,0.5);")   
+        legend.w-auto Add New Product
+        div.new_product_form
+            form(action="submit_new_product" name="product_form" method="POST" enctype="multipart/form-data" ).form-group
+                div.row
+                    div.col-sm-12.col-md-6
+                        //- The product name field and label with error show div
+                        div.label
+                            label(for="product_name") Product Name *
+                        div
+                            input.form-control(type="text" name="product_name" placeholder="Product Name" )
+                            small.error
+                                span(id="product_name_error")
+                        //- The price field and label with error show div
+                        div.label
+                            Label(for="price") Price *
+                        div
+                            input.form-control(type="text" name="price" id="price" placeholder="Price" )
+                            small.error
+                                span(id="price_error")
+                        //- The category field and label with error show div
+                        div.label
+                            Label(for="category") Category *
+                        div
+                            input.form-control(type="text" name="category" placeholder="Category" ) 
+                            small.error
+                                span(id="category_error") 
+                        //- The product image field and label with error show div
+                        div.label
+                            Label(for="product_image") Product Image *
+                        div
+                            input.form-control(type="file" name="product_image" placeholder="Product Image" required)
+                            small.error
+                                span(id="product_image_error")
+                        //- The product description field and label 
+                        div.label
+                            Label(for="description") Description
+                        div
+                            textarea.form-control(name="description", rows="4%")
+                            
+                    div.col-sm-12.col-md-6
+                        //- The product make field and label with error show div
+                        div.label
+                            label(for="make") Make *
+                        div
+                            input.form-control(type="text" name="make" placeholder="Make" )
+                            small.error
+                                span(id="make_error")
+                            
+                        //- The serial number field and label with error show div
+                        div.label
+                            Label(for="serial_number") Serial Number *
+                        div
+                            input.form-control(type="text" name="serial_number" placeholder="Serial Number" )
+                            small.error
+                                span(id="serial_number_error")
+                        //- The color field and label with error show div
+                        div.label
+                            Label(for="color") Color *
+                        div
+                            input.form-control(type="text" name="color" placeholder="Color" )  
+                            small.error
+                                span(id="color_error")  
+                        //- The number in stock field and label with error show div
+                        div.label
+                            Label(for="number_in_stock") Number in stock *
+                        div
+                            input.form-control(type="text" name="number_in_stock" placeholder="Number in Stock" )
+                            small.error
+                                span(id="number_in_stock_error")
+                        //- Thepayment interval field and label with error show div
+                        div.label
+                            Label(for="pay_interval") Pay Interval *
+                        div
+                            input.form-control(type="text" name="pay_interval" id="intervals" placeholder="Pay Interval" )
+                            small.error
+                                span(id="pay_interval_error")
+                        //- The inital pan and the pay interval cash fields 
+                        //- The input for the date value
+                        div
+                            input.form-control(type="text" name="date_of_entry" id="date" style="display:none;" value= current_date)  
+                        div
+                            input.form-control(type="text" name="initial_pay" id="initial_pay" style="display:none;" value=initial_pay) 
+                        div
+                            input.form-control(type="text" name="pay_interval_cash" id="pay_interval_cash" style="display:none;" value=pay_interval_cash)  
+                        br    
+                div.submit_buttom 
+                    button.btn.btn-primary(onClick="return getInputValue()") Submit
+            script(src="/assets/js/getInputValue.js")
+                
+            

@@ -1,0 +1,92 @@
+extends user_layout
+block content
+    div.container
+        style.
+  
+            .description{
+                display: grid;
+                    position: relative;
+                    margin-top:-75px;
+                    bottom: 0;
+                    left: 0;
+                    color: #fff;
+                    padding: 10px;
+                    font-size: 17px;
+                    line-height: 18px;
+                    width: 100%;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    opacity: 1;
+                    color: #fff;
+                    transition: 0.8s ease;
+                    text-align: center;
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+                    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+                }
+
+                .description .description-heading{
+                font-size: 1em;
+                font-weight: bold;
+                }
+
+                .description .description-body{
+                font-size: 0.8em;
+                margin-top: 10px;
+                font-weight: 300;
+                }
+                @media only screen and (max-width: 780px){
+                .col-sm-6{
+                    width:50%;
+                    float:left;
+                }
+                .card.video-card{
+                    height:22vh;
+                    margin-bottom:20px;
+                }
+                .lowerbody{
+                    margin-top: -65px;
+                }
+                
+                }
+                @media only screen and (min-width: 780px){
+                
+                .card.video-card{
+                    height:33vh;
+                    margin-bottom:20px;
+                }
+                
+                
+                }
+
+
+                
+                    
+                
+        h2 Category &nbsp&nbsp 
+        //- #{currentUser.username} &nbsp&nbsp
+            //- div.sidebar-search(style="display:inline-block;")
+            //-                 div.input-group
+            //-                     input(type="text" placeholder="Search...").form-control.search-menu
+            //-                     div.input-group-append
+            //-                         button.input-group-text
+            //-                             i(aria-hidden="true").fa.fa-search
+            br                            
+        hr
+        div          
+            //- h1(style="background-color: rgba(0,0,0,0.2)") Fushion
+                
+            div.row
+                
+                each new_product in new_products
+                    div.col-sm-6.col-md-3
+                        form(method="GET" action='/product_details')
+                            input(type="hidden", placeholder="", name="id", value=new_product._id)
+                            button.btn.btn-dark.btn-block(type="submit" )
+                                div.card-deck(style="background-color:white;")
+                                    div.card.video-card
+                                        img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                        div.description
+                                            span.description-heading #{new_product.price}
+                                            span.description-body #{new_product.product_name}
+                                            
+

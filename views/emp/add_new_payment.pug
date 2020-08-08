@@ -1,0 +1,101 @@
+extends employee_layout
+block content
+    style.
+        .error{
+            color:red;
+        }
+    fieldset.form-group.border.p-3(style="background-color: rgba(255,255,255,0.5);")   
+        legend.w-auto Add New Payment
+        div.new_payment_form
+            form(action="add_new_payment" name="sales_form" method="POST").form-group
+                div.row
+                    div(style="background:white; text-align:center;").col-md-4.col-sm-12
+                        each new_product in new_products
+                            h3 #{new_product.product_name}
+                            img(src=new_product.product_image, style="width=100%; height:180px; margin-left: auto; margin-right: auto; display: block;" alt="")
+                            p #{new_product.price}
+                            p #{new_product.description}
+            
+                    div.col-md-4.col-sm-10
+                        div.label
+                            label(for="customer_name") Customer Name *
+                        div
+                            input.form-control(type="text" name="customer_name" placeholder="Customer Name" )
+                            small.error
+                                span(id="customer_name_error") 
+                        div.label
+                            Label(for="customer_ref_no") Customer Ref Number *
+                        div
+                            input.form-control(type="text" name="customer_ref_no" placeholder="Customer Ref Number" )
+                            small.error
+                                span(id="customer_ref_no_error") 
+                        div.label
+                            Label(for="phone_number") Phone Number *
+                        div
+                            input.form-control(type="text" name="phone_number" placeholder="Phone Number" )
+                            small.error
+                                span(id="phone_number_error") 
+                        div.label
+                            Label(for="email") Email
+                        div
+                            input.form-control(type="text" name="email" placeholder="Email")
+                            small.error
+                                span(id="email_error") 
+                        div.label
+                            Label(for="address") Address
+                        div
+                            input.form-control(type="text" name="address" placeholder="Address") 
+                            small.error
+                                span(id="address_error") 
+
+
+                    div.col-md-4.col-sm-10
+                        div.label
+                            Label(for="national_id_no") National Id Number *
+                        div
+                            input.form-control(type="text" name="national_id_no" placeholder="National Id Number" )
+                            small.error
+                                span(id="national_id_no_error") 
+                        div.label
+                            Label(for="referee_no") Referee Number *
+                        div
+                            input.form-control(type="text" name="referee_no" placeholder="Referee Number" ) 
+                            small.error
+                                span(id="referee_no_error") 
+                        div.label 
+                            Label(for="ammount_paid") Ammount Paid *
+                        div
+                            input.form-control(type="text" name="ammount_paid" id="ammount_paid" placeholder="Ammount Paid" )
+                            small.error
+                                span(id="ammount_paid_error") 
+                        div.label 
+                            Label(for="payment_time") pay In (_ days) *
+                        div
+                            input.form-control(type="text" name="payment_time" id="payment_time" placeholder="Payment Time" )
+                            small.error
+                                span(id="payment_time_error")
+                        div.label 
+                            Label(for="purchase_receipt") Purchase Receipt *
+                        div
+                            input.form-control(type="text" name="purchase_receipt" placeholder="Purchase Receipt" )
+                            small.error
+                                span(id="purchase_receipt_error")
+                        div
+                            each new_product in new_products
+                                input.form-control(type="text" style="display:none;" name="product_name" value = new_product.product_name )
+                                input.form-control(type="text" style="display:none;" name="price" id="price" value=new_product.price )
+                                input.form-control(type="text" style="display:none;"  name="initial_pay" id="initial_pay" value=new_product.Initial_pay )
+                                input.form-control(type="text" style="display:none;" name="product_image" id="product_image" value= new_product.product_image )
+                                input.form-control(type="text" style="display:none;" name="serial_number" value= new_product.serial_number )
+                                input.form-control(type="text" style="display:none;"  name="pay_interval" id="pay_interval" value= new_product.pay_interval  )
+                                input.form-control(type="text" style="display:none;"  name="pay_interval_left" id="pay_interval_left" value= new_product.pay_interval  )
+                                input.form-control(type="text" style="display:none;"  name="next_payable_amount" id="next_payable_amount" value= next_payable_amount  )
+                                input.form-control(type="text" style="display:none;" name="date_of_pay" id="date_of_pay" value=current_date )
+                                input.form-control(type="text" style="display:none;" name="next_pay_date" id="next_pay_date" value=next_date )  
+                                input.form-control(type="text" style="display:none;" name="total" id="total" value=money_paid ) 
+                                input.form-control(type="text" style="display:none;" name="balance" id="balance" value=balance )   
+                br    
+                div.submit_buttom(style="text-align: center;") 
+                    button(onClick="return salesInputs()").btn.btn-primary Submit
+        script(src="/assets/js/salesInputs.js")
+                

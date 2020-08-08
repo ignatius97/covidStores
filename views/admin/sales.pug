@@ -1,0 +1,125 @@
+extends manager_layout
+block content
+    h2 Sales
+    hr
+    style.
+       
+        
+        .container-fluid{
+            overflow:auto;
+        }
+        .error{
+            color:red;
+        }
+
+
+
+        
+  
+    
+    div 
+        form(action="/emp/add_new_instalment" name="next_instalment_form" method="post")
+            - let count = 0
+            each new_sale in new_sales 
+                if count < 1
+                    input.form-control(type="text" style="display:none;" name="customer_name" value = new_sale.customer_name )
+                    input.form-control(type="text" style="display:none;" name="customer_ref_no" value = new_sale.customer_ref_no )
+                    input.form-control(type="text" style="display:none;" name="phone_number" value = new_sale.phone_number )
+                    input.form-control(type="text" style="display:none;" name="email" value = new_sale.email )
+                    input.form-control(type="text" style="display:none;" name="address" value = new_sale.address )
+                    input.form-control(type="text" style="display:none;" name="national_id_no" value = new_sale.national_id_no )
+                    input.form-control(type="text" style="display:none;" name="referee_no" value = new_sale.referee_no )
+                    input.form-control(type="text" style="display:none;" name="ammount_paid" id="ammount_paid" value = next_instalment )
+                    input.form-control(type="text" style="display:none;" name="payment_time" value = new_sale.payment_time )
+                    input.form-control(type="text" style="display:none;" name="purchase_receipt" value = new_sale.purchase_receipt )
+
+                    input.form-control(type="text" style="display:none;" name="product_name" value = new_sale.product_name )
+                    input.form-control(type="text" style="display:none;" name="price" id="price" value = new_sale.price )
+                    input.form-control(type="text" style="display:none;" name="product_image" value = new_sale.product_image )
+                    input.form-control(type="text" style="display:none;" name="serial_number" value = new_sale.serial_number )
+                    input.form-control(type="text" style="display:none;" name="pay_interval" value = new_sale.pay_interval )
+                    //- Picking the pay interval left
+                    input.form-control(type="text" style="display:none;" id="pay_interval_left" value = new_sale.pay_interval_left )
+                    input.form-control(type="text" style="display:none;" name="pay_interval_left" id="new_pay_interval_left" value = new_pay_interval_left )
+                    input.form-control(type="text" style="display:none;" id="old_next_payable_amount" value = new_sale.next_payable_amount )
+                    input.form-control(type="text" style="display:none;" id="next_payable_amount" name="next_payable_amount" value = new_next_payable_amount )
+                    
+                    input.form-control(type="text" style="display:none;" name="date_of_pay" value = new_sale.date_of_pay )
+                    input.form-control(type="text" style="display:none;" name="next_pay_date" value = new_sale.next_pay_date )
+                    
+                    input.form-control(type="text" style="display:none;" id="total" value = new_sale.total )
+                    input.form-control(type="text" style="display:none;" id="balance" value = new_sale.balance )
+                    //- New updated values for the total and balance
+                    input.form-control(type="text" style="display:none;" name="total" id="new_total" value = new_total )
+                    input.form-control(type="text" style="display:none;" name="balance" id="new_balance" value = new_balance )
+                    - count++; 
+            
+            
+            br
+            div
+                label(for="next_instalment") Next Instalment :
+            div
+                input.form-control(type="text" style="display:inline-block; width:40%;" name="next_instalment" id="next_instalment" )
+                div.submit_buttom(style="display:inline-block;vertical-align: bottom; ") 
+                    button(onClick="return next_instalmentInput()").btn.btn-primary Submit
+                div
+                    small.error
+                            span(id="next_instalment_error")
+
+
+
+    hr
+    table.table
+        thead.thead-dark
+            tr
+                th Product_name
+                th Price
+                th serial_number
+                th Image
+                th customer_name
+                th customer_ref_no
+                th phone_number
+                th email
+                th address
+                th national_id_no
+                th referee_no
+                th ammount_paid
+                th total
+                th balance
+                th next_payable_amount
+                th pay_interval
+                th pay_interval_left
+                th purchase_receipt
+                th date_of_pay
+                th next_pay_date
+                
+        tbody(style="background-color: rgba(255,255,255,0.5);") 
+            each new_sale in new_sales  
+                tr
+                    //- td #{new_sale._id.customer_name}
+                    td #{new_sale.product_name}
+                    td #{new_sale.price}
+                    td #{new_sale.serial_number} 
+                    td 
+                        img(src=new_sale.product_image, alt="no image" style="width:100px; height:100px;").zoom
+                    td #{new_sale.customer_name}   
+                    td #{new_sale.customer_ref_no}
+                    td #{new_sale.phone_number}
+                    td #{new_sale.email}
+                    td #{new_sale.address}
+                    td #{new_sale.national_id_no}
+                    td #{new_sale.referee_no}
+                    td #{new_sale.ammount_paid}
+                    td #{new_sale.total}
+                    td #{new_sale.balance}
+                    td #{new_sale.next_payable_amount}
+                    td #{new_sale.pay_interval}
+                    td #{new_sale.pay_interval_left}
+                    td #{new_sale.purchase_receipt}
+                    td #{new_sale.date_of_pay}
+                    td #{new_sale.next_pay_date}
+
+    script(src="/assets/js/next_instalmentInput.js")
+       
+                        
+                        
