@@ -10,25 +10,52 @@ const { distinct } = require('../models/New_sale');
 const New_product = mongoose.model('New_product')
 const New_sale = mongoose.model('New_sale')
 
+//......................................The Post Routes........................................................
 // employee log in
-
-
 //The route to the  employee login page
 router.post('/dashboard',passport.authenticate('emp-local'),async(req , res)=>{
     req.session.user = req.user
     if(req.session.user){
         try {
             let new_product = await New_product.find()
-      
             if (req.query.product_name) {
               new_product = await New_product.find({ product_name: req.query.product_name  })
             }
             res.render('emp/employee_dashboard',{  new_products: new_product , currentUser:req.session.user })
-      
           } catch (err) {
             res.status(400).send("unable to find items in the database");
           }
     }
+});
+
+// The route for sending new sale to the database
+router.post('/add_new_payment',async(req , res)=>{
+  const new_sale = new New_sale(req.body);
+new_sale.save()
+  .then(() => { 
+      res.redirect('buyers');
+    })
+  .catch((err) => {
+    console.log(err);
+    res.send('Sorry! Something went wrong.');
+  }); 
+});
+
+//Route to the add new instalment page
+router.post('/add_new_instalment',async(req , res)=>{
+  const new_sale = new New_sale(req.body);
+
+new_sale.save()
+  .then(() => { 
+      
+      res.redirect('dashboard');
+    })
+  .catch((err) => {
+    console.log(err);
+    res.send('Sorry! Something went wrong hee.');
+  });
+
+
 });
 
 
@@ -39,9 +66,7 @@ router.post('/dashboard',passport.authenticate('emp-local'),async(req , res)=>{
 
 
 
-
-
-
+//......................................The Get Routes........................................................
 
 
 router.get('/dashboard',async(req , res)=>{
@@ -63,12 +88,9 @@ router.get('/dashboard',async(req , res)=>{
         res.redirect('/login')
     }
 });
-
-// router.get('/dashboard',(req , res)=>{
-//     res.render('emp/employee_dashboard')
-// });
 //Route to the add new payment page
 router.get('/add_new_payment',async(req , res)=>{
+  if(req.session.user){
     try {
         let items = await New_product.find({ _id: req.query.id })
 
@@ -76,44 +98,17 @@ router.get('/add_new_payment',async(req , res)=>{
       } catch (err) {
         res.status(400).send("unable to find items in the database");
       }
+    } else {
+      console.log("cant find session")
+      res.redirect('/login')
+  }
     
 });
-// The route for sending new sale to the database
-router.post('/add_new_payment',async(req , res)=>{
-  const new_sale = new New_sale(req.body);
 
-new_sale.save()
-  .then(() => { 
-      
-      res.redirect('buyers');
-    })
-  .catch((err) => {
-    console.log(err);
-    res.send('Sorry! Something went wrong.');
-  });
-
-  
-});
-
-//Route to the add new instalment page
-router.post('/add_new_instalment',async(req , res)=>{
-  const new_sale = new New_sale(req.body);
-
-new_sale.save()
-  .then(() => { 
-      
-      res.redirect('dashboard');
-    })
-  .catch((err) => {
-    console.log(err);
-    res.send('Sorry! Something went wrong hee.');
-  });
-
-
-});
 
 //Route to the employee sales page
 router.get('/sales',async(req , res)=>{
+  if(req.session.user){
   try {
     let items = await New_sale.aggregate([
 
@@ -127,10 +122,15 @@ router.get('/sales',async(req , res)=>{
   } catch (err) {
     res.status(400).send("unable to find items in the database");
   } 
+} else {
+  console.log("cant find session")
+  res.redirect('/login')
+}
 });
 
 //Route to the buyers page
 router.get('/buyers',async(req , res)=>{
+  if(req.session.user){
   try {
     let items = await New_sale.aggregate([
       {$group:{ _id: { customer_ref_no: "$customer_ref_no", customer_name: "$customer_name",}}}
@@ -142,6 +142,10 @@ router.get('/buyers',async(req , res)=>{
   } catch (err) {
     res.status(400).send("unable to find items in the database");
   }
+} else {
+  console.log("cant find session")
+  res.redirect('/login')
+}
 });
 
 // Route for goimg to the categories page
@@ -160,10 +164,15 @@ router.get('/category',async(req , res)=>{
           res.status(400).send("unable to find items in the database");
         }
   }
+ else {
+  console.log("cant find session")
+  res.redirect('/login')
+}
 });
 
 //Route to the buyers products page
 router.get('/buyers_products',async(req , res)=>{
+  if(req.session.user){
   try {
     let items = await New_sale.aggregate([
       {$match:{  customer_ref_no: req.query.customer_ref_no}},
@@ -176,15 +185,23 @@ router.get('/buyers_products',async(req , res)=>{
   } catch (err) {
     res.status(400).send("unable to find items in the database");
   }
+} else {
+  console.log("cant find session")
+  res.redirect('/login')
+}
 });
 
-//Route to the employee orders page
-router.get('/orders',(req , res)=>{
-    res.render('emp/employee_orders')
-});
 
 router.get('/log_out',(req , res)=>{
-    res.redirect('../login')
+  if (req.session) {
+    req.session.destroy(function (err) {
+        if (err) {
+            // failed to destroy session
+        } else {
+            res.redirect('../login')
+        }
+    })
+}
 });
 
 

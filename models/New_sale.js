@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// The model to add new sale to the database
+// creating an instance of the schema
 const new_saleSchema = new Schema({
     customer_name:{
         type:String, 
@@ -86,7 +88,7 @@ const new_saleSchema = new Schema({
         trim:true
     }
 })
-
+// converting a schema to a model
 const New_sale = mongoose.model('New_sale', new_saleSchema);
-
+// exporting the New_sale model
 module.exports = New_sale;

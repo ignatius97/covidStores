@@ -65,7 +65,10 @@ html
         z-index: -1;
         }
         ul li:hover{
-        background-color: silver;
+        background-color: #4ea8ad;
+        }
+        .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover{
+           background-color: #4ea8ad; 
         }
         .navbar-inverse .navbar-nav>li>a{
         color: azure;
@@ -107,6 +110,7 @@ html
 
         body {
             background:url("/images/bg41.jpg") fixed;
+            /*background: linear-gradient(45deg, rgba(29, 224, 153, 0.8), rgba(29, 200, 205, 0.8)), url("../img/intro-bg.jpg") center top no-repeat;*/
             overflow:scroll;
             background-size: 100% 100%;
             background-repeat: no-repeat;
@@ -185,7 +189,7 @@ html
         }
         }
     head
-        title THE JOINT
+        title Covid Stores
     body
         div.head_section
   
@@ -211,27 +215,42 @@ html
                                     | Categories 
                                     span.caret
                                 ul.dropdown-menu
-                                    li 
-                                        form(action="user_category", method="get")
-                                            input(type="hidden", placeholder="", name="category", value="Bag")
-                                            button(type="submit" style="width:100%; color:black;" ) Bags
+                                    li
+                                        a(href="/user_category?category=Bag") Bags 
+                                        //- form(action="user_category", method="get")
+                                        //-     input(type="hidden", placeholder="", name="category", value="Bag")
+                                        //-     button(type="submit" style="width:100%; color:black;" ) Bags
                                              
                                     li
-                                        form(action="user_category", method="get")
-                                            input(type="hidden", placeholder="", name="category", value="clothes")
-                                            button(type="submit" style="width:100%; color:black;" ) Clothes
+                                        a(href="/user_category?category=clothes") Clothes
+                                        
                                     li
-                                        form(action="user_category", method="get")
-                                            input(type="hidden", placeholder="", name="category", value="shoes")
-                                            button(type="submit" style="width:100%; color:black;" ) Shoes
+                                        a(href="/user_category?category=shoes") Shoes
+                                        
                                     li
-                                        form(action="user_category", method="get")
-                                            input(type="hidden", placeholder="", name="category", value="TV")
-                                            button(type="submit" style="width:100%; color:black; " ) TV            
+                                        a(href="/user_category?category=TV") TV
+                                          
+                                    li
+                                        a(href="/user_category?category=Home+Theater") Home Theater
+
+                                    li
+                                        a(href="/user_category?category=furniture") Furniture
+                                          
+                                    li
+                                        a(href="/user_category?category=Fitness+and+Machinery") Fitness and Machinery
+                                                         
+
                             li
-                                a(href="about.php") AboutIluvdagal2u
+                                a(href="/about") About
         div
             div.main_content
                 block content        
+        
         .wave
+            div
+                span(style="text-align:right;") &nbsp&nbsp&nbsp&nbsp&nbsp &copy Ignatius
+                //- img(src="/images/logo.png" alt="Covid Stores").logo_img 
+                //- div(style="font-size: 4vmin; font-weight: bold; color:azure ; display:inline-block; ") Covid Stores
+                 
+            
 

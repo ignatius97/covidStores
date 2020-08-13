@@ -7,7 +7,8 @@ block content
         .error{
             color:red;
         }
-        
+
+    //- Tbis page is for adding new products to the database   
     fieldset.form-group.border.p-3(style="background-color: rgba(255,255,255,0.5);")   
         legend.w-auto Add New Product
         div.new_product_form
@@ -95,7 +96,7 @@ block content
                             input.form-control(type="text" name="pay_interval_cash" id="pay_interval_cash" style="display:none;" value=pay_interval_cash)  
                         br    
                 div.submit_buttom 
-                    button.btn.btn-primary(onClick="return getInputValue()") Submit
+                    button.btn.btn-primary(type='submit' onClick="getInputValue()") Submit
             script(src="/assets/js/getInputValue.js")
                 
             

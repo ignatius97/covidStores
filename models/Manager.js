@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
+// The manager model to add new managers to the database
+// creating an instance of the schema
 const managerSchema = new Schema({
   firstname: {
     type: String,
@@ -34,17 +36,11 @@ const managerSchema = new Schema({
     type:String,
     trim:true
   }
-    // password: {
-    //     type:String,
-    //     trim:true
-    // },
-    // c_password: {
-    //     type:String,
-    //     trim:true
-    // }
+
 });
 
 managerSchema.plugin(passportLocalMongoose);
+// converting a schema to a model
 const Manager = mongoose.model('Manager', managerSchema);
-
+// exporting the Manager model
 module.exports = Manager;

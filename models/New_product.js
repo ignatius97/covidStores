@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 const { isDate } = require('moment');
 const Schema = mongoose.Schema;
-// var express = require('express');
-// var fs = require('fs');
-// var multer = require('multer');
-
+// The model to add new product to the database
+// creating an instance of the schema
 const new_productSchema = new Schema({
   product_name: {
     type: String,
@@ -35,6 +33,7 @@ const new_productSchema = new Schema({
   },
   serial_number: {
     type: String,
+    unique:true,
     trim: true,
   },
   color: {
@@ -60,7 +59,7 @@ const new_productSchema = new Schema({
 
   
 });
-
+// converting a schema to a model
 const New_product = mongoose.model('New_product', new_productSchema);
-
+// exporting the New_product model
 module.exports = New_product;

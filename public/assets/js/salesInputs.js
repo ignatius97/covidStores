@@ -1,4 +1,4 @@
-function salesInputs(){
+function salesInputsValidtion(){
     console.log('can be seen')
     var payment_time = parseInt(document.getElementById("payment_time").value);
     console.log(payment_time)
@@ -36,79 +36,130 @@ function salesInputs(){
     var number = /^[0-9]+$/;
     var letters = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
     var alphanumeric = /^[a-zA-Z0-9]+$/;
+    var NIN = /^[A-Z]{3}[0-9]{8}[A-Z]*$/;
+
+    function alertError(errId,errMsg){
+        document.getElementById(errId).innerHTML = errMsg;
+    }
+
+    var customer_name_error = customer_ref_no_error = phone_number_error = email_error = address_error = national_id_no_error = referee_no_error = ammount_paid_error = payment_time_error = purchase_receipt_error = true;
 
     if(customer_name.value.length == " " || !customer_name.value.match(letters)  ){
-        document.getElementById("customer_name_error").innerHTML="Customer Name should not be empty and should have only characters *";
+        alertError("customer_name_error","Customer Name should not be empty and should have only characters *")
         customer_name.style.border = "1px solid red";
-        customer_name.style.color = "red";
-        customer_name.style.display = "inline-block";
-        return false;   
+        customer_name.style.display = "inline-block"; 
     }
+    else {
+        alertError("customer_name_error"," ")
+        customer_name.style.border = "none";
+        customer_name_error = false; 
+    };
+    
     if(customer_ref_no.value.length == " " || !customer_ref_no.value.match(alphanumeric)  ){
-        document.getElementById("customer_ref_no_error").innerHTML="Customer ref No should not be empty and should be alphanumeric *";
+        alertError("customer_ref_no_error","Customer ref No should not be empty and should be alphanumeric *")
         customer_ref_no.style.border = "1px solid red";
-        customer_ref_no.style.color = "red";
         customer_ref_no.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("customer_ref_no_error"," ")
+        customer_ref_no.style.border = "none";
+        customer_ref_no_error = false; 
+    };
+
     if(phone_number.value.length == " " ){
-        document.getElementById("phone_number_error").innerHTML="Phone number should not be empty *";
+        alertError("phone_number_error","Phone number should not be empty *")
         phone_number.style.border = "1px solid red";
-        phone_number.style.color = "red";
         phone_number.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("phone_number_error"," ")
+        phone_number.style.border = "none";
+        phone_number_error = false; 
+    };
+
     if(email.value.length == " " ){
-        document.getElementById("email_error").innerHTML="Email should not be empty *";
+        alertError("email_error","Email should not be empty *")
         email.style.border = "1px solid red";
-        email.style.color = "red";
         email.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("email_error"," ")
+        email.style.border = "none";
+        email_error = false; 
+    };
+
     if(address.value.length == " " ){
-        document.getElementById("address_error").innerHTML="Address should not be empty *";
+        alertError("address_error","Address should not be empty *")
         address.style.border = "1px solid red";
-        address.style.color = "red";
         address.style.display = "inline-block";
-        return false;   
     }
-    if(national_id_no.value.length == " " ){
-        document.getElementById("national_id_no_error").innerHTML="national_id_no should not be empty *";
+    else {
+        alertError("address_error"," ")
+        address.style.border = "none";
+        address_error = false; 
+    };
+
+    if(national_id_no.value.length < 13 || national_id_no.value.length > 13 || !national_id_no.value.match(NIN) ){
+        alertError("national_id_no_error","national_id_no should not be empty *")
         national_id_no.style.border = "1px solid red";
-        national_id_no.style.color = "red";
         national_id_no.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("national_id_no_error"," ")
+        national_id_no.style.border = "none";
+        national_id_no_error = false; 
+    };
+
     if(referee_no.value.length == " " ){
-        document.getElementById("referee_no_error").innerHTML="referee_no should not be empty *";
+        alertError("referee_no_error","referee_no should not be empty *")
         referee_no.style.border = "1px solid red";
-        referee_no.style.color = "red";
         referee_no.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("referee_no_error"," ")
+        referee_no.style.border = "none";
+        referee_no_error = false; 
+    };
+
     if(ammount_paid.value.length == " " || ammount_paid.value < initial_pay ){
-        document.getElementById("ammount_paid_error").innerHTML="ammount_paid should not be empty and should be aleast 50% *";
+        alertError("ammount_paid_error","ammount_paid should not be empty and should be aleast 50%  *")
         ammount_paid.style.border = "1px solid red";
-        ammount_paid.style.color = "red";
         ammount_paid.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("ammount_paid_error"," ")
+        ammount_paid.style.border = "none";
+        ammount_paid_error = false; 
+    };
+
     if(payment_time.value.length == " " || !payment_time.value.match(number)  ){
-        document.getElementById("payment_time_error").innerHTML="payment_time should not be empty and should be a number *";
+        alertError("payment_time_error","payment_time should not be empty and should be a number *")
         payment_time.style.border = "1px solid red";
-        payment_time.style.color = "red";
         payment_time.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("payment_time_error"," ")
+        payment_time.style.border = "none";
+        payment_time_error = false; 
+    };
+
     if(purchase_receipt.value.length == " " ){
-        document.getElementById("purchase_receipt_error").innerHTML="purchase_receipt should not be empty *";
+        alertError("purchase_receipt_error","purchase_receipt should not be empty *")
         purchase_receipt.style.border = "1px solid red";
-        purchase_receipt.style.color = "red";
         purchase_receipt.style.display = "inline-block";
-        return false;   
     }
+    else {
+        alertError("purchase_receipt_error"," ")
+        purchase_receipt.style.border = "none";
+        purchase_receipt_error = false; 
+    };
 
 
-
+    if((customer_name_error || customer_ref_no_error || phone_number_error || email_error || address_error || national_id_no_error || referee_no_error || ammount_paid_error || payment_time_error || purchase_receipt_error )==true){
+        event.preventDefault();
+    }
+    else{
+        event.currentTarget.submit();
+    }
 
 }

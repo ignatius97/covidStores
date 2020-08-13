@@ -4,6 +4,7 @@ block content
         .container{
                 background:white; 
                 margin-top: 35px;
+                margin-bottom: 35px;
                 text-align:center;
             }
         img{
@@ -22,12 +23,26 @@ block content
         @media(min-width: 920px){
             .container{ 
                 width:35%; 
-                height:85%;
+                height:inherit;
             }
+        }
+        .description-heading{
+                    font-size: 40px;
+                    font-weight: bold;
+                    color: red;
+        }
+        .description-body{
+            width: auto;
+            height: auto;
+            text-align: center;
+            transform: skew(10deg);
+            background: red;
+            color:white;
+            padding: 10px;
         }
     div.container
         each new_product in new_products
             h1 #{new_product.product_name}
             img(src=new_product.product_image, alt="")
-            p #{new_product.price}
-            p #{new_product.description}
+            p.description-heading #{new_product.price}.00 ugx
+            p.description-body #{new_product.description}

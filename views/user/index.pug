@@ -42,7 +42,7 @@ block content
                 }
 
                 .description .description-heading{
-                font-size: 1em;
+                font-size: 1.2em;
                 font-weight: bold;
                 }
 
@@ -126,12 +126,28 @@ block content
                     border-radius: 20px;
                     color: #fff;
                     }
-        
+                .col-sm-6{
+                    margin-bottom: 10px;
+                }
+                .description-heading{
+                    width: auto;
+                    height: 30px;
+                    text-align: right;
+                    transform: skew(20deg);
+                    background: red;
+                    padding: 6px;
+                }
+                h1{
+                    text-align: center;
+                }
+                .btn.focus, .btn:focus, .btn:hover {
+                opacity: 0.7;
+                }
                    
 
         div(style="text-align:right; position:absolute; width:90%; z-index:999;")
             img(src="/images/logo.png" alt="Covid Stores" style="height:10vmax;")   
-            div(style="font-size: 10vmin; font-weight: bold;color:azure ;font-family: ink free; ") Covid Stores
+            div(style="font-size: 10vmin; font-weight: bold;color:azure ;font-family: ink free;color:red; ") Covid Stores
                 div.slogan WE HAVE  YOUR BACK
 
 
@@ -150,11 +166,8 @@ block content
             a.right.carousel-control(href="#myCarousel" data-slide="next" )
 
         div.container.lowerbody            
-            h1(style="background-color: rgba(255,255,255,0.6)") Fushion
-                div(style="display:inline-block; float:right; font-size:15px; position:relative; z-index: 9999;")
-                    form(action="user_category", method="get")
-                        input(type="hidden", placeholder="", name="category", value="clothes")
-                        button(type="submit" ) More
+            h1(style="background-color: rgba(255,255,255,0.6)") Fashion
+                
             div.row
                 - var count = 0
                 each new_product in new_products
@@ -164,22 +177,23 @@ block content
                                 form(method="GET" action='/product_details')
                                     input(type="hidden", placeholder="", name="id", value=new_product._id)
                                     button.btn.btn-dark.btn-block(type="submit" )
-                                        div.card-deck(style="background-color:white;")
+                                        div.card-deck
                                             div.card.video-card
                                                 img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
                                                 div.description
-                                                    span.description-heading #{new_product.price}
+                                                    span.description-heading #{new_product.price}.00 ugx
                                                     span.description-body #{new_product.product_name}
-                            - count++;                    
+                            - count++;    
+            div(style="display:block;text-align:center; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="clothes")
+                        button.btn(style="background-color: red; color: white;") More                
 
                                     
 
                                             
             h1(style="background-color: rgba(255,255,255,0.6)") Bags
-                div(style="display:inline-block; float:right;font-size:15px; ")
-                    form(action="user_category", method="get")
-                        input(type="hidden", placeholder="", name="category", value="Bag")
-                        button(type="submit" ) More
+              
             div.row
                 - var count = 0
                 each new_product, i in new_products
@@ -189,20 +203,20 @@ block content
                                 form(method="GET" action='/product_details')
                                     input(type="hidden", placeholder="", name="id", value=new_product._id)
                                     button.btn.btn-dark.btn-block(type="submit" )
-                                        div.card-deck(style="background-color:white;")
+                                        div.card-deck
                                             div.card.video-card
-                                                a(href="#")
                                                     img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
                                                     div.description
-                                                        span.description-heading #{new_product.price}
+                                                        span.description-heading #{new_product.price}.00 ugx
                                                         span.description-body #{new_product.product_name}
                             - count++; 
+            div(style="display:block;text-align:center; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="Bag")
+                        button.btn(style="background-color: red; color: white;") More 
 
             h1(style="background-color: rgba(255,255,255,0.6)") Shoes
-                div(style="display:inline-block; float:right; font-size:15px;")
-                    form(action="user_category", method="get")
-                        input(type="hidden", placeholder="", name="category", value="shoes")
-                        button(type="submit" ) More
+               
             div.row
                 - var count = 0
                 each new_product, i in new_products
@@ -212,23 +226,111 @@ block content
                                 form(method="GET" action='/product_details')
                                     input(type="hidden", placeholder="", name="id", value=new_product._id)
                                     button.btn.btn-dark.btn-block(type="submit" )
-                                        div.card-deck(style="background-color:white;")
+                                        div.card-deck
                                             div.card.video-card
-                                                a(href="#" )
                                                     img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
                                                     div.description
-                                                        span.description-heading #{new_product.price}
+                                                        span.description-heading #{new_product.price}.00 ugx
                                                         span.description-body #{new_product.product_name}
-                            - count++;                             
+                            - count++; 
+            div(style="display:block;text-align:center; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="shoes")
+                        button.btn(style="background-color: red; color: white;") More 
+
+            h1(style="background-color: rgba(255,255,255,0.6)") Televisions
+              
+            div.row
+                - var count = 0
+                each new_product, i in new_products
+                    if new_product.category == "TV"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck
+                                            div.card.video-card
+                                                    img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                    div.description
+                                                        span.description-heading #{new_product.price}.00 ugx
+                                                        span.description-body #{new_product.product_name}
+                            - count++; 
+            div(style="display:block;text-align:center; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="TV")
+                        button.btn(style="background-color: red; color: white;") More                 
+
+            h1(style="background-color: rgba(255,255,255,0.6)") Home Theater
+              
+            div.row
+                - var count = 0
+                each new_product, i in new_products
+                    if new_product.category == "Home Theater"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck
+                                            div.card.video-card
+                                                    img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                    div.description
+                                                        span.description-heading #{new_product.price}.00 ugx
+                                                        span.description-body #{new_product.product_name}
+                            - count++; 
+            div(style="display:block;text-align:center; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="Home Theater")
+                        button.btn(style="background-color: red; color: white;") More  
+
+            h1(style="background-color: rgba(255,255,255,0.6)") Furniture
+               
+            div.row
+                - var count = 0
+                each new_product, i in new_products
+                    if new_product.category == "furniture"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck
+                                            div.card.video-card
+                                                    img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                    div.description
+                                                        span.description-heading #{new_product.price}.00 ugx
+                                                        span.description-body #{new_product.product_name}
+                            - count++; 
+            div(style="display:block;text-align:center; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="furniture")
+                        button.btn(style="background-color: red; color: white;") More
+
+
+            h1(style="background-color: rgba(255,255,255,0.6)") Fitness and Machinery
+                
+            div.row
+                - var count = 0
+                each new_product, i in new_products
+                    if new_product.category == "Fitness and Machinery"
+                        if count < 4
+                            div.col-sm-6.col-md-3
+                                form(method="GET" action='/product_details')
+                                    input(type="hidden", placeholder="", name="id", value=new_product._id)
+                                    button.btn.btn-dark.btn-block(type="submit" )
+                                        div.card-deck
+                                            div.card.video-card
+                                                    img(src=new_product.product_image , alt="No Image" style="width:100%; height:100%;")
+                                                    div.description
+                                                        span.description-heading #{new_product.price}.00 ugx
+                                                        span.description-body #{new_product.product_name}
+                            - count++;  
+            div(style="display:block;text-align:center;margin-bottom: 30px; font-size:15px; position:relative; z-index: 9999;")
+                    form(action="user_category", method="get")
+                        input(type="hidden", placeholder="", name="category", value="Fitness and Machinery")
+                        button.btn(style="background-color: red; color: white;") More                                                           
 
            
     
     
-
-        script.
-            function log() {
-                document.getElementById('modal-content').style.display ="inline-block";
-            }
-            function cls() {
-                document.getElementById('modal-content').style.display ="none";
-            }

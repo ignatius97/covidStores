@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
+// The model to add new emloyees to the database
+// creating an instance of the schema
 const new_employeeSchema = new Schema({
   firstname: {
     type: String,
@@ -34,17 +36,11 @@ const new_employeeSchema = new Schema({
     type:String,
     trim:true
   },
-    // password: {
-    //     type:String,
-    //     trim:true
-    // },
-    // c_password: {
-    //     type:String,
-    //     trim:true
-    // }
+
 });
 
 new_employeeSchema.plugin(passportLocalMongoose);
+// converting a schema to a model
 const New_employee = mongoose.model('New_employee', new_employeeSchema);
-
+// exporting the New_employee model
 module.exports = New_employee;

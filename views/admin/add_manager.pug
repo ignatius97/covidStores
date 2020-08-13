@@ -5,55 +5,80 @@ block content
         .submit_buttom {
             text-align:right;
         }
-    
+        .error{
+            color:red;
+        }
+    //-The  page that allows adding new managers
+    //- This contains a fleidset, labels and input fields
     fieldset.form-group.border.p-3(style="background-color: rgba(255,255,255,0.5);")   
         legend.w-auto Add New Manager
         div.managers_form
-            form(action="submit" onSubmit="fetchmsg()" method="POST").form-group
+            //- The form for adding a manager with the action going to the submit route 
+            //- And also with an onclick event for verification and auto computation of certain data
+            form(action="submit_new_employee" name="employee_form" method="POST").form-group
                 div.row
                     div.col-sm-12.col-md-6
                         div.label
                             label(for="firstname") First Name *
                         div
-                            input.form-control(type="text" name="firstname" placeholder="First Name" required)
+                            input.form-control(type="text" name="firstname" placeholder="First Name" )
+                            small.error
+                                span(id="firstname_error")
                         div.label
                             Label(for="lastname") Last Name *
                         div
-                            input.form-control(type="text" name="lastname" placeholder="Last Name" required)
+                            input.form-control(type="text" name="lastname" placeholder="Last Name" )
+                            small.error
+                                span(id="lastname_error")
                         div.label
                             Label(for="phone_number") Phone Number *
                         div
-                            input.form-control(type="text" name="phone_number" placeholder="Phone Number" required)
+                            input.form-control(type="text" name="phone_number" placeholder="Phone Number" )
+                            small.error
+                                span(id="phone_number_error")
                         div.label
                             Label(for="email") Email
                         div
                             input.form-control(type="text" name="email" placeholder="Email")
+                            small.error
+                                span(id="email_error")
                         div.label
                             Label(for="address") Address
                         div
                             input.form-control(type="text" name="address" placeholder="Address") 
-
-
+                            small.error
+                                span(id="address_error")
+                            
+                            
                     div.col-sm-12.col-md-6
                         div.label
                             Label(for="national_id_no") National Id Number *
                         div
-                            input.form-control(type="text" name="national_id_no" placeholder="National Id Number" required)
+                            input.form-control(type="text" name="national_id_no" placeholder="National Id Number" )
+                            small.error
+                                span(id="national_id_no_error")
                         div.label
                             Label(for="manager_id_no") Manager Id Number *
                         div
-                            input.form-control(type="text" name="manager_id_no" placeholder="Manager Id Number" required)
+                            input.form-control(type="text" name="manager_id_no" placeholder="Manager Id Number" )
+                            small.error
+                                span(id="manager_id_no_error")
                         div.label
                             label(for="username") User Name *
                         div
-                            input.form-control(type="text" name="username" placeholder="User Name" required)
+                            input.form-control(type="text" name="username" placeholder="User Name" )
+                            small.error
+                                span(id="username_error")
                         div.label
                             Label(for="password") Password *
                         div
-                            input.form-control(type="password" name="password" placeholder="Password" required) 
+                            input.form-control(type="password" name="password" placeholder="Password" ) 
+                            small.error
+                                span(id="password_error")
                                 
                 br    
                 div.submit_buttom 
-                    button.btn.btn-primary Submit
+                    button.btn.btn-primary(onClick="managerValidation()") Submit
+            script(src="/assets/js/managerValidation.js")
 
             

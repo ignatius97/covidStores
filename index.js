@@ -105,7 +105,7 @@ app.use('/emp' , empRoute);
 
 
 app.get('*',(req , res)=>{
-    res.send('No such page')
+    res.render("error_page")
 })
 
 app.listen(4000,()=>{
